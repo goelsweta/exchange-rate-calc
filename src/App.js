@@ -18,16 +18,13 @@ export default class App extends Component {
       toCurrency: "USD"
     }
     this.conversionRate = 1;
-    console.log('ctor')
   }
 
   componentDidMount() {
-    console.log('will mount');
     this.setState({ conversionRates: this.getConversionRates() });
   }
 
   render() {
-    console.log('render')
     return (
       <div className="App">
         <Header logo={logo} title="Exchange Rate Calculator"
@@ -93,7 +90,6 @@ export default class App extends Component {
       .then(res => res.json())
       .then((data) => {
         return { data: data }
-        // this.setState({ currencyCode: data })
       })
       .catch(console.log);
   }
@@ -102,13 +98,7 @@ export default class App extends Component {
     fetch('https://api.exchangerate-api.com/v6/latest')
       .then(res => res.json())
       .then((data) => {
-        console.log(data)
-        //console.log(data.rates[targetCurrency]);
-        //this.conversionRate = data.rates[targetCurrency]
-        this.setState({ conversionRates: data.rates }, () => {
-          console.log(this.state.conversionRates)
-        });
-        // return data.rates;
+        this.setState({ conversionRates: data.rates });
       })
       .catch(console.log)
   }
