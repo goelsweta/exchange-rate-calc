@@ -1,14 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function Select(props) {
+export default function CustomSelect(props) {
+    const classes = useStyles();
     return (
-        <select className="select" onChange={props.onChange} value={props.value}>
-            {
-                props.options &&
-                Object.keys(props.options).map((value) => {
-                    return <option key={value} value={value}>{value}</option>
-                })
-            }
-        </select>
+        <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id={props.lblId}>Currency</InputLabel>
+            <Select
+                id={props.id}
+                labelId={props.lblId}
+                onChange={props.onChange}
+                value={props.value}
+                label="Currency">
+                {
+                    props.options &&
+                    Object.keys(props.options).map((value) => {
+                        return <MenuItem key={value} value={value}>{value}</MenuItem>
+                    })
+                }
+            </Select>
+        </FormControl >
     )
 }
+
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    }
+}));
+

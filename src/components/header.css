@@ -1,0 +1,15 @@
+
+.logo {
+    pointer-events: none;
+    width: 100%;
+}
+
+.logo img {
+    height: 22vmin;
+    width: 22vmin;
+    margin: 0 auto;
+}
+
+h1{
+    color: #5fbaa7;
+}

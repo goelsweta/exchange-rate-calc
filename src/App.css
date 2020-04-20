@@ -7,20 +7,11 @@ body{
     justify-content: center;
     height: 100vh;
     margin: 0;
-    padding: 20px;
     text-align: center;
 }
 
-.logo {
-    pointer-events: none;
-    width: 100%;
-}
+/* 
 
-.logo img {
-    height: 25vmin;
-    width: 25vmin;
-    margin: 15px auto;
-}
 
 .currency {
     padding: 40px 0;
@@ -32,7 +23,7 @@ body{
 .currency .select {
     margin: 10px;
     padding: 10px 20px 10px 10px;
-    border: 1px solid #dedede;
+    border: 3px solid #5fbaa7;
     font-size: 16px;
     background: transparent;
     background-position: right 10px top 50%, 0, 0;
@@ -45,15 +36,17 @@ body{
     background: transparent;
     font-size: 30px;
     text-align: right;
+    border-bottom: 3px solid #5fbaa7;;
 }
 
 .btn {
     color: #fff;
-    background: #8BC24A;
+    background: #5fbaa7;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px 12px;
+    margin: 10px;
 }
 .swap-rate-container {
     display: flex;
@@ -62,30 +55,7 @@ body{
 }
 
 .rate{
-    color: #8BC24A;
-    font-size: 14px;
+    color: #5fbaa7;
+    font-size: 16px;
     padding: 0 10px;
-}
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+}  */

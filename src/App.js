@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.jpg';
+import logo from './images/money.png'
 import './App.css';
-import Button from './presentation/button';
-import Select from './presentation/select';
+import CustomButton from './presentation/button';
+import CustomSelect from './presentation/select';
 import Header from './components/header';
+import Input from './presentation/input';
+import Box from '@material-ui/core/Box';
 
 export default class App extends Component {
   constructor() {
@@ -13,13 +15,13 @@ export default class App extends Component {
       fromCurrency: "USD",
       fromCurrencyValue: 1,
       toCurrencyValue: 1,
-      toCurrency: 'USD'
+      toCurrency: "USD"
     }
     this.conversionRate = 1;
     console.log('ctor')
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('will mount');
     this.setState({ conversionRates: this.getConversionRates() });
   }
@@ -31,25 +33,29 @@ export default class App extends Component {
         <Header logo={logo} title="Exchange Rate Calculator"
           subTitle="Choose the currency and the amounts to get the exchange rate">
         </Header>
-        <div className="currency">
-          <Select value={this.state.fromCurrency}
+        <div>
+          <CustomSelect lblId="lbl-from-currency"
+            id="from-currency"
+            value={this.state.fromCurrency}
             options={this.state.conversionRates}
-            onChange={this.onFromCurrencyChange}></Select>
+            onChange={this.onFromCurrencyChange}></CustomSelect>
+          <Input onChange={this.onCurrencyValueChange}></Input>
+        </div>
 
-          <input className="input"
-            type="number" defaultValue="1" onChange={this.onCurrencyValueChange}></input>
+        <div>
+          <CustomButton label="SWAP" onClick={this.onSwapClick}></CustomButton>
+          <Box component="div" display="inline">
+            1 {this.state.fromCurrency} = {this.conversionRate} {this.state.toCurrency}
+          </Box>
         </div>
-        <div className="swap-rate-container">
-          <Button label="SWAP" onClick={this.onSwapClick}></Button>
-          <div className="rate">1 {this.state.fromCurrency} = {this.conversionRate} {this.state.toCurrency}
-          </div>
-        </div>
-        <div className="currency">
-          <Select value={this.state.toCurrency}
+        <div>
+          <CustomSelect lblId="lbl-to-currency"
+            id="to-currency"
+            value={this.state.toCurrency}
             options={this.state.conversionRates}
-            onChange={this.onTargetCurrencyChange}></Select>
-          <input className="input"
-            type="number" step="0.01" readOnly defaultValue="1" value={this.state.toCurrencyValue}></input>
+            onChange={this.onTargetCurrencyChange}></CustomSelect>
+          <Input disabled value={this.state.toCurrencyValue}
+            onChange={this.onCurrencyValueChange}></Input>
         </div>
       </div>
     );
