@@ -11,6 +11,9 @@ export default function CustomButton(props) {
 }
 const CustomizedButton = withStyles((theme) => ({
     root: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+        padding:theme.spacing(1),
         color: theme.palette.getContrastText('#5fbaa7'),
         backgroundColor: '#5fbaa7',
         '&:hover': {
